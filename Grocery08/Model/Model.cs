@@ -9,7 +9,7 @@ namespace Grocery08
         public string Img { get; set; } = string.Empty;
         public string Link { get; set; } = string.Empty;
     }
-    public class Model
+    public class Models
     {
         public string Img { get; set; } = string.Empty;
         public string Qty { get; set; } = string.Empty;

@@ -64,64 +64,101 @@
     <div class="container">
         <MudText Typo="Typo.h4" Class="mt-5 mb-5 d-flex align-content-center justify-content-center heading">Best Selling<span class="ml-2">Products</span> </MudText>
         <MudGrid>
-            <MudItem md="3" sm="6" xs="12">
-                <MudCard Class="">
+            @foreach (var i in Produts)
+            {
+                <MudItem md="3" sm="6" xs="12">
+                    <MudCard Class="image">
 
-                    <MudImage Src="img/Nissy/6.png" Class="p-4" Height="335" />
-                    <MudCardContent Class="text-center cardcontent">
-                        <MudText Typo="Typo.h6">
-                            Beetroot malt 250g
-                        </MudText>
-                        <MudText Typo="Typo.body1" Class="p-2">₹200.00</MudText>
-                    </MudCardContent>
-                    <MudItem md="12" Class="addtocart">
-                        <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="@(() => ToggleDrawer())">Add To Cart</MudButton>
-                    </MudItem>
-                </MudCard>
-            </MudItem>
-            <MudItem md="3" sm="6" xs="12">
-                <MudCard>
-                    <MudImage Src="img/Nissy/6.png" Height="335" />
-                    <MudCardContent Class="text-center cardcontent">
-                        <MudText Typo="Typo.h6">
-                            Beetroot malt 250g
-                        </MudText>
-                        <MudText Typo="Typo.body1" Class="p-2">₹200.00</MudText>
-                    </MudCardContent>
-                    <MudItem md="12" Class="addtocart">
-                        <MudButton Variant="Variant.Filled" Color="Color.Success">Add To Cart</MudButton>
-                    </MudItem>
-                </MudCard>
-            </MudItem>
+
+                        <MudCardContent Class="text-center cardcontent">
+                            <MudImage Src="@i.FrontImage" Class="p-4 image1" Height="335" />
+                            <MudImage Src="@i.BackImage" Class="p-4 image2" Height="335" />
+                            <MudText Typo="Typo.h6">
+                                @i.Name
+                            </MudText>
+                            <MudGrid>
+                                <MudItem md="6">
+                                    <MudText Typo="Typo.body1" Class="p-2 price">₹@i.OldPrice</MudText>
+                                </MudItem>
+                                <MudItem md="6">
+                                    <MudText Typo="Typo.body1" Class="p-2">₹@i.Price</MudText>
+                                </MudItem>
+                            </MudGrid>
+                        </MudCardContent>
+                        <MudItem md="12" Class="addtocart">
+                            <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="@(() => ToggleDrawer())">Add To Cart</MudButton>
+                        </MudItem>
+                    </MudCard>
+                </MudItem>
+            }
         </MudGrid>
     </div>
 </div>
 
 <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Temporary" Class="drawer" Anchor="Anchor.End" Width="@drawerWidth">
-    <MudDrawerHeader>
-        <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
-            <MudCarouselItem Transition="transition" Color="@Color.Primary">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-            <MudCarouselItem Transition="transition" Color="@Color.Secondary">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-                </div>
-            </MudCarouselItem>
-            <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
-                </div>
+    <MudDrawerHeader Class="drawerheader">
+        <MudCarousel Class="mud-width-full" Style="height:370px;" ShowBullets="false" ShowArrows="@arrows" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+            <MudCarouselItem>
+                <MudImage Src="img/Nissy/6.png" Height="400" />
             </MudCarouselItem>
         </MudCarousel>
     </MudDrawerHeader>
-    <MudNavMenu>
-        <MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All">Library</MudNavLink>
-        <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>
-    </MudNavMenu>
+    <MudDrawerContainer>
+        <MudGrid Class="p-4">
+            <MudItem md="12" sm="12" xs="12">
+                <MudText Typo="Typo.h4" Class="fw-bold">Beetroot Malt</MudText>
+                @for (int i = 0; i < 5; i++)
+                {
+                    <MudIcon Icon="@Icons.Material.Filled.StarRate" Color="Color.Warning"></MudIcon>
+                }
+                <MudText Typo="Typo.h6" Class="pt-2">$343.00</MudText>
+
+            </MudItem>
+            <MudItem md="12" sm="12" xs="12">
+                <MudText Typo="Typo.h6">WEIGHT</MudText>
+                <MudGrid>
+                    <MudItem md="1">
+                        <MudIcon Icon="@(Selected ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Circle)" Class="circleicon" @onclick="HandleIconClick" />
+                    </MudItem>
+                    <MudItem md="2" Class="gramstyle">
+                        <MudText>300 G</MudText>
+                    </MudItem>
+                    <MudItem md="1">
+                        <MudIcon Icon="@(Selected ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Circle)" Class="circleicon" @onclick="HandleIconClick" />
+                    </MudItem>
+                    <MudItem md="2" Class="gramstyle">
+                        <MudText>300 G</MudText>
+                    </MudItem>
+                    <MudItem md="1">
+                        <MudIcon Icon="@(Selected ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Circle)" Class="circleicon" @onclick="HandleIconClick" />
+                    </MudItem>
+                    <MudItem md="2" Class="gramstyle">
+                        <MudText>300 G</MudText>
+                    </MudItem>
+                </MudGrid>
+                @* <MudRadioGroup @bind-Value="@SelectedOption">
+                <MudRadio Value="@("Radio 1")" >200 g</MudRadio>
+                <MudRadio Value="@("Radio 2")">1 KG</MudRadio>
+                <MudRadio Value="@("Radio 3")">2 Kg</MudRadio>
+                </MudRadioGroup> *@
+            </MudItem>
+            <MudItem md="2">
+                <MudIcon Icon="@Icons.Material.Filled.Add"></MudIcon>
+                <input type="number" id="quantity_662d071bbe94b" class="input-text qty text" name="quantity" aria-label="Product quantity" value="1" data-old="7" size="4" min="1" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                <MudIcon Icon="@Icons.Material.Filled.Add"></MudIcon>
+
+                @*                <MudTextField @bind-Value="Quantity" Variant="Variant.Outlined" AdornmentIcon=""></MudTextField>
+                *@
+            </MudItem>
+            <MudItem md="5">
+                <MudButton Variant="Variant.Filled" Color="Color.Success">ADD TO CART</MudButton>
+            </MudItem>
+            <MudItem md="5">
+                <MudButton Variant="Variant.Filled" Color="Color.Success">Buy Now</MudButton>
+            </MudItem>
+        </MudGrid>
+
+    </MudDrawerContainer>
 </MudDrawer>
 @* <MudItem Class="Background-Img">
     <MudContainer>
@@ -468,14 +505,14 @@
 
 
     //best seler List
-    List<Model> md = new List<Model>
+    List<Models> md = new List<Models>
     {
-        new Model{Img ="img/sku/f2f-5l-coconut-oil-can.webp", Qty="5 Litre" ,MRP="1800" ,Avb="Avaiable",link="/CoconutOil"},
-        new Model{Img ="img/sku/f2f-mustard-oil.jpg", Qty="1 Litre" ,MRP="450" ,Avb="Avaiable",link=""},
-        new Model{Img ="img/sku/f2f-rose-lemon-sherbet.webp", Qty="100 ml" ,MRP="150" ,Avb="Avaiable",link=""},
-        new Model{Img ="img/sku/f2f-5l-groundnut-oil-can.webp", Qty="5 Litre" ,MRP="1600" ,Avb="Avaiable",link=""},
-        new Model{Img ="img/sku/f2f-cow-ghee.webp", Qty="500 ml" ,MRP="520" ,Avb="Avaiable",link=""},
-        new Model{Img ="img/sku/f2f-kombucha-black-tea.webp", Qty="100 ml" ,MRP="280" ,Avb="Avaiable",link=""},
+        new Models{Img ="img/sku/f2f-5l-coconut-oil-can.webp", Qty="5 Litre" ,MRP="1800" ,Avb="Avaiable",link="/CoconutOil"},
+        new Models{Img ="img/sku/f2f-mustard-oil.jpg", Qty="1 Litre" ,MRP="450" ,Avb="Avaiable",link=""},
+        new Models{Img ="img/sku/f2f-rose-lemon-sherbet.webp", Qty="100 ml" ,MRP="150" ,Avb="Avaiable",link=""},
+        new Models{Img ="img/sku/f2f-5l-groundnut-oil-can.webp", Qty="5 Litre" ,MRP="1600" ,Avb="Avaiable",link=""},
+        new Models{Img ="img/sku/f2f-cow-ghee.webp", Qty="500 ml" ,MRP="520" ,Avb="Avaiable",link=""},
+        new Models{Img ="img/sku/f2f-kombucha-black-tea.webp", Qty="100 ml" ,MRP="280" ,Avb="Avaiable",link=""},
     };
 
     List<carousel> cr = new List<carousel>
@@ -532,10 +569,45 @@
         background-color: #fffdf7;
     }
 
+    .image1 {
+        display: block;
+    }
+
+    .image2 {
+        display: none;
+    }
+
+    .image:hover .image1 {
+        display: none;
+    }
+
+    .image:hover .image2 {
+        display: block;
+    }
+
     .cardcontent {
         padding: 4px;
     }
 
+    .drawer {
+        overflow-x: hidden;
+    }
+
+    .gramstyle {
+        padding: 9px !important;
+    }
+
+    .price {
+        text-decoration-line: overline;
+    }
+
+    .circleicon {
+        color: lightgray;
+    }
+
+    .drawerheader {
+        min-height: auto;
+    }
 
     .Cardstyle {
         width: 302px;
@@ -637,7 +709,7 @@
 
     .reviewpaper {
         /*         background-image:url("/img/testbg.png");
-                background-size: auto; */
+                        background-size: auto; */
         background-color: white;
         color: black;
         padding: 2%;
