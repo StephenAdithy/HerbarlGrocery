@@ -8,11 +8,12 @@ namespace Grocery08.Pages
         List<ProductsModel> Produts = new List<ProductsModel>
         {
         new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/banner/f2f-chutneys.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/banner/f2f-ghee.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/banner/f2f-millet-noodles-and-pasta.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/banner/f2f-oils.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"}
-
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
     };
 
         bool open;
