@@ -1,11 +1,41 @@
-﻿using MudBlazor;
+﻿using Grocery08.Model;
+using MudBlazor;
 
 namespace Grocery08.Pages
 {
     public partial class Home
     {
+        List<ProductsModel> Produts = new List<ProductsModel>
+        {
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/banner/f2f-chutneys.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/banner/f2f-ghee.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/banner/f2f-millet-noodles-and-pasta.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/banner/f2f-oils.webp",BackImage="img/banner/f2f-batters.webp",Name="dsfsd",Price="300.00",OldPrice="500.00"}
+
+    };
+
         bool open;
-        string drawerWidth = "400px";
+        string drawerWidth = "450px";
+        public string SelectedOption { get; set; }
+        public int Quantity { get; set; }
+        public bool Selected { get; set; } = false;
+        private void HandleIconClick()
+        {
+            Selected = !Selected;
+        }
+        private void IncreaseQuantity()
+        {
+            Quantity++;
+        }
+
+        private void DecreaseQuantity()
+        {
+            if (Quantity > 0)
+            {
+                Quantity--;
+            }
+        }
         void ToggleDrawer()
         {
             open = !open;
