@@ -7,13 +7,13 @@ namespace Grocery08.Pages
     {
         List<ProductsModel> Produts = new List<ProductsModel>
         {
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
-        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="dsfsd",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Apple",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Ball",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Cat",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Doll",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Elephant",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Fish",Price="300.00",OldPrice="500.00"},
+        new ProductsModel{FrontImage="img/Nissy/6.png",BackImage="img/Nissy/1.jpg",Name="Graphs",Price="300.00",OldPrice="500.00"},
     };
 
         bool open;
