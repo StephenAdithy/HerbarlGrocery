@@ -17,6 +17,7 @@ namespace Grocery08.Pages
     };
 
         bool open;
+        bool open1;
         string drawerWidth = "450px";
         public string SelectedOption { get; set; }
         public int Quantity { get; set; }
@@ -37,11 +38,12 @@ namespace Grocery08.Pages
                 Quantity--;
             }
         }
-        void ToggleDrawer()
+        private void OpenProductDetails()
         {
             open = !open;
             drawerWidth = open ? "400px" : "0px";
         }
+       
         private bool arrows = true;
         private bool enableSwipeGesture = true;
         private bool autocycle = true;

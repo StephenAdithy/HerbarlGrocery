@@ -67,7 +67,7 @@
             @foreach (var i in Produts)
             {
                 <MudItem md="3" sm="6" xs="12">
-                    <MudCard Class="cardhover" Outlined="false" Elevation="0">
+                    <MudCard Class="cardhover1" Outlined="false" Elevation="0">
                         
                         <MudCardContent Class="text-center">
                             <MudIcon Icon="@Icons.Material.Filled.RemoveRedEye" Color="Color.Dark" Class="eye1" />
@@ -87,25 +87,17 @@
                                 <MudItem md="6">
                                     <MudText Typo="Typo.body1" Class="p-2">₹@i.Price</MudText>
                                 </MudItem>
-                                                                  
-                                    
-                                
-   
                             </MudGrid>
-
-                            
-                            <MudItem md="12" Class="addtocart">
-                                <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="@(() => ToggleDrawer())">Select Option</MudButton>
+                            <MudItem md="12" Class="addtocart1">
+                                <MudButton Variant="Variant.Filled" Color="Color.Success" OnClick="@(() => OpenProductDetails())">Select Option</MudButton>
                             </MudItem>
                         </MudCardContent>
-
                     </MudCard>
                 </MudItem>
             }
         </MudGrid>
     </div>
 </div>
-
 <MudDrawer @bind-Open="@open" Elevation="1" Variant="@DrawerVariant.Temporary" Class="drawer" Anchor="Anchor.End" Width="@drawerWidth">
     <MudDrawerHeader Class="drawerheader">
         <MudCarousel Class="mud-width-full" Style="height:370px;" ShowBullets="false" ShowArrows="@arrows" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
@@ -171,138 +163,7 @@
 
     </MudDrawerContainer>
 </MudDrawer>
-@* <MudItem Class="Background-Img">
-    <MudContainer>
-        <MudGrid>
-            <MudItem lg="5" md="5" sm="5" xs="12" Class="">
-                <MudImage Src="img/img4.png" Class="Image-1" />
-            </MudItem>
 
-            <MudItem lg="7" md="7" sm="7" xs="12" Class="Content">
-                <MudText Class="Main-Heading">Choose delicacy the best healthy way to life</MudText>
-                <MudText Class="Main-Content">Beware what you eat, it becomes part of you and climb the Healthy Food ladder to happiness.</MudText>
-                <MudGrid Class="IconGrid">
-                    <MudItem lg="6" md="6" sm="6" xs="12" Class="IconCard">
-                        <i class="fas fa-leaf fa-2xl HomeIcon"></i><span class="Icon-Content">Organic</span>
-                    </MudItem>
-                    <MudItem lg="6" md="6" sm="6" xs="12" Class="IconCard">
-                        <i class="fa-solid fa-truck fa-2xl HomeIcon"></i><span class="Icon-Content">Fast Delivary</span>
-                    </MudItem>
-                </MudGrid>
-                <MudItem lg="12">
-                    <MudButton Class="HomeBtn mx-2" Variant="Variant.Filled">Shop Now<i class="fa-solid fa-right-long ms-4"></i></MudButton>
-                </MudItem>
-            </MudItem>
-        </MudGrid>
-    </MudContainer>
-</MudItem>
- *@
-
-
-
-
-
-
-@* Main slides *@
-@* <div>
-    <MudCarousel Class="mud-width-full cor" TData="object" ShowArrows="false">
-        <BulletTemplate Context="selected">
-            <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
-                <span class="mud-icon-button-label">
-                    <MudIcon Icon="@(selected ? Icons.Material.Filled.Circle : Icons.Material.Outlined.Circle)" Class="button" Color="@Color.Default" />
-                </span>
-            </div>
-        </BulletTemplate>
-        <ChildContent>
-            @foreach (var obj3 in cr)
-            {
-                <MudLink Href="@obj3.Link">
-                    <MudCarouselItem>
-                        <MudImage Class="img" Src=@obj3.Img></MudImage>
-                    </MudCarouselItem>
-                </MudLink>
-            }
-        </ChildContent>
-    </MudCarousel>
-</div> *@
-
-@* Best seller products *@
-@* <div class="container bestseller">
-    <MudText Typo="Typo.h4" Class="mt-5 mb-5 d-flex align-content-center justify-content-center heading"> Best <span class="ml-2"> Seller</span> </MudText>
-    <MudGrid>
-        @foreach (var obj in md)
-        {
-            <MudItem xxl="2" xl="2" lg="2" md="2" sm="4" xs="6">
-                <MudCard Class="bscard">
-                    <NavLink Href="@obj.link" class="cdbody">
-                        <MudImage Class="bsimg" Src=@obj.Img />
-                        <MudCardContent>
-                            <MudText Typo="Typo.body1">@obj.Qty</MudText>
-                            <MudText Class="mrp" Typo="Typo.body1">MRP &#8377; @obj.MRP</MudText>
-                            <MudText Typo="Typo.body1">@obj.Avb</MudText>
-                        </MudCardContent>
-                    </NavLink>
-                    <MudCardActions>
-                        <MudToggleIconButton Variant="Variant.Outlined" Icon="@Icons.Material.Filled.Favorite" ToggledIcon="@Icons.Material.Filled.Favorite" ToggledColor="@Color.Error" ToggledTitle="On" />
-                        <MudButton Variant="Variant.Filled" Class="btn" Href="" @bind-value="@num" hidden="@showcart" >ADD TO CART</MudButton>
-                    </MudCardActions>
-                    <MudButtonGroup Variant="Variant.Outlined" Color="Color.Inherit" Style="border-width:2px ;border-color:#ff7800; width: 200px; height: 60px;" hidden="@newcart">
-                        <MudButton Style="color:#ff7800; border:hidden;" OnClick="decrease">-</MudButton>
-                        <MudSpacer></MudSpacer>
-                        <MudText Color="Color.Inherit" Style="align-content:center; text-align:center; color:#ff7800">@productcount</MudText>
-                        <MudSpacer></MudSpacer>
-                        <MudButton Style="color:#ff7800; border:hidden;" OnClick="@increase" Class="inc">+</MudButton>
-                    </MudButtonGroup>
-                </MudCard>
-            </MudItem>
-        }
-    </MudGrid>
-</div>
- *@
-
-
-@* Recip screen for large screen *@
-@* <div class="container Recips">
-    <MudText Typo="Typo.h4" Class="mt-20 mb-5 d-flex align-content-center justify-content-center heading">Recipes</MudText>
-    <MudContainer>
-        <div style="overflow-x: auto;">
-            <div style="display: flex;">
-                @foreach (var obj2 in re)
-                {
-                    <MudLink Href="@obj2.Link">
-                        <MudImage Src=@obj2.Img Class="mx-1 recimg"></MudImage>
-                    </MudLink>
-                }
-            </div>
-        </div>
-    </MudContainer>
-</div> *@
-
-@* Recip screen for mobile screen *@
-@* <div class="container Recipsmobile">
-    <MudText Typo="Typo.h4" Class="mt-15 mb-5 d-flex align-content-center justify-content-center heading">Recipes</MudText>
-    <MudCarousel Class="mud-width-full recmob" TData="object" ShowArrows="true" ShowBullets="false">
-        <BulletTemplate Context="selected">
-            <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
-                <span class="mud-icon-button-label">
-                    <MudIcon Icon="@(selected ? Icons.Material.Filled.Circle : Icons.Material.Filled.Circle)" Class="button" Color="@Color.Default" />
-                </span>
-            </div>
-        </BulletTemplate>
-        <ChildContent>
-            @foreach (var obj4 in re)
-            {
-                <MudLink Href="@obj4.Link">
-                    <MudCarouselItem>
-                        <MudLink Href="@obj4.Link">
-                            <MudImage Class="recmobimg" Src=@obj4.Img></MudImage>
-                        </MudLink>
-                    </MudCarouselItem>
-                </MudLink>
-            }
-        </ChildContent>
-    </MudCarousel>
-</div> *@
 
 @* images *@
 <div class="container">
@@ -579,6 +440,25 @@
     body {
         background-color: #fffdf7;
     }
+   
+        .cardhover1 {
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.cardhover1:hover {
+      transform: scale(1.05);
+}
+
+.addtocart1 {
+    display: none;
+    width: 100%;
+}
+
+.cardhover1:hover .addtocart1 {
+    opacity:1;
+    display: block;
+}
 
     .image1 {
         width: 100%;
@@ -590,10 +470,7 @@
     }
 
     .eye1{
-        position: absolute;
-        margin-top: 20px;
-        border: 1px solid;
-        background-color: white;
+        display:none;
     }
 
     .image2 {
@@ -619,7 +496,14 @@
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transform: scale(1.2);
     }
-
+    .cardhover:hover .eye1{
+        display:contents;
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 72px;
+        border: 1px solid;
+        background-color: white;
+    }
     .image:hover .image1 {
         display: none;
     }

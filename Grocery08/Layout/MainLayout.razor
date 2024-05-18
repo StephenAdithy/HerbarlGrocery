@@ -12,7 +12,7 @@
     <MudAppBar Class="navbar-color barheight" Fixed="true" Elevation="0">
         <MudGrid Class="mt-5 mobilesearch">
         <MudItem md="2" sm="2">
-            <MudImage Src="/img/Nissy/Logo.png" Style="width:120px ; height:50px"></MudImage>
+            <MudImage Src="/img/Nissy/Logo.png" Style="width:120px ; height:46px"></MudImage>
         </MudItem>
         <MudItem md="8" sm="8">
             <div class="input-group">
@@ -29,7 +29,7 @@
 
         <MudItem md="2" sm="2" Class="text-end">
             <i class="fa-solid fa-cart-shopping shopicon"></i>
-              <i class="fa-regular fa-heart hearticon"></i>
+                <i class="fa-regular fa-heart hearticon" @onclick="@(() => OpenWishList(Anchor.Top))"></i>
         </MudItem>
            
     </MudGrid>
@@ -66,53 +66,6 @@
     </MudGrid>
     </MudGrid>
 
-
-@*     <MudDrawer @bind-Open="@IsDrawerOpen" Anchor="@click" Class="drawer-text navbar-color" Variant="@DrawerVariant.Temporary">
-
-        <MudItem Class="d-flex align-content-center justify-content-center">
-            <MudAvatar Size="Size.Medium" Class="mt-2">
-                <MudImage Src="/img/blog/blog01.jpg"></MudImage>
-            </MudAvatar>
-        </MudItem>
-        <MudItem Class="mt-2">
-            <MudText Typo="Typo.body2" Class="mud-text-secondary d-flex align-content-center justify-content-center">Hello! User</MudText>
-        </MudItem>
-        <MudItem>
-            <MudDivider Class="my-2" />
-        </MudItem>
-        <MudNavLink Href="/" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.Home" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Home</MudText>
-        </MudNavLink>
-
-        <MudNavLink Href="/profile" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.AccountBox" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Profile</MudText>
-        </MudNavLink>
-
-        <MudNavLink Href="/product" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.ShoppingBasket" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Product</MudText>
-        </MudNavLink>
-
-        <MudNavLink Href="/wishlist" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.Favorite" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Wishlist</MudText>
-        </MudNavLink>
-
-        <MudNavLink Href="/addtocart" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.ShoppingCart" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Cart</MudText>
-        </MudNavLink>
-
-
-
-        <MudNavLink Href="/wallet" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.AccountBalanceWallet" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Wallet</MudText>
-        </MudNavLink>
-
-
-        <MudNavLink OnClick="@((e) => OpenDialog(closeButton))" Class="mx-2 icon-clr" Icon="@Icons.Material.Filled.Login" IconColor="Color.Inherit" Size="Size.Small">
-            <MudText Typo="Typo.body2">Login</MudText>
-        </MudNavLink>
-
-    </MudDrawer>
- *@
     <MudMainContent>
 
         @Body
@@ -182,7 +135,7 @@
                     <MudSpacer />
                     <MudButton Href="/"><MudIcon Class="icon-clr" Icon="@Icons.Material.Filled.Home" Size="Size.Small" /></MudButton>
 
-                    <MudButton OnClick="searchbtn"><MudIcon Class="icon-clr" Icon="@Icons.Material.Filled.Search" Size="Size.Small" /></MudButton>
+                    <MudButton OnClick="@(() => OpenDrawer(Anchor.Top))"><MudIcon Class="icon-clr" Icon="@Icons.Material.Filled.Search" Size="Size.Small" /></MudButton>
 
                     <MudButton Href="/addtocart"><MudIcon Class="icon-clr" Icon="@Icons.Material.Filled.ShoppingCart" Size="Size.Small" /></MudButton>
 
@@ -192,58 +145,43 @@
         </MudItem>
 
     </MudMainContent>
-
-    @* Add to cart drawer start *@
-    <MudDrawer @bind-Open="@open" Width="@width" Height="@height" Anchor="@anchor" Elevation="1" Variant="@DrawerVariant.Temporary">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">My Cart</MudText>
-        </MudDrawerHeader>
-        <MudGrid Class="emptycart" hidden="@emptcart">
-            <MudItem lg="12" md="12" sm="12" Class="d-flex align-content-center justify-content-center">
-                <MudImage Class="CartImage" Src="img/empty-cart.png" />
+    <MudDrawer @bind-Open="@open1" Elevation="1" Variant="@DrawerVariant.Temporary" Class="drawer" Anchor="Anchor.End" Width="@drawerWidth">
+        <MudGrid Class="wishlist">
+            <MudItem md="12">
+                <MudText Typo="Typo.h6" Class="fw-bold text-center">Wishlist</MudText>
             </MudItem>
-            <MudItem lg="12" md="12" sm="12" Class="d-flex align-content-center justify-content-center">
-                <MudButton Variant="Variant.Filled" Class="CartButton mb-7" Href="/">Continue Shopping</MudButton>
+                <MudGrid>
+            <MudItem md="3" sm="4" xs="4">
+                <MudImage Src="img/Nissy/6.png" Height="100" />
+            </MudItem>
+            <MudItem md="8" sm="5" xs="5">
+                            <MudGrid Class="wishlist">
+                                <MudItem md="12" sm="12" xs="12">
+                        <MudText Class="fw-bold">Baby Hair Growth Oil</MudText>
+                        <MudText Class="pt-1">$1200.00</MudText>
+                        <MudText Class="pt-1">ADD TO CART</MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudItem>
+            <MudItem md="1" sm="3" xs="3">
+                <MudIcon Icon="@Icons.Material.Filled.Close"></MudIcon>
+            </MudItem>
+                </MudGrid>
+        </MudGrid>
+    </MudDrawer>
+
+    <MudDrawer @bind-Open="@open" Anchor="@anchor" Elevation="1" Variant="@DrawerVariant.Temporary" Class="searchdrawer">
+        <MudGrid Class="m-2">
+            <MudItem sm="10" xs="9">
+                <div class="input-group">
+                    <input  type="search" class="form-control rounded searchbox" placeholder="I'm shopping For ..." aria-label="Search" aria-describedby="search-addon" />
+                </div>
+            </MudItem>
+            <MudItem sm="2" xs="3" Class="align-content-center">
+                <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowUp" Class="arrowicon"></MudIcon>
             </MudItem>
         </MudGrid>
-        <MudCard Class="mx-3 cartitems" hidden="@cartitems">
-            <MudGrid>
-                <MudItem lg="4" md="4">
-                    <MudImage Src="img/sku/f2f-coconut-oil-cold-pressed.jpg" Class="cartimage" />
-                </MudItem>
-                <MudItem lg="8" md="8">
-                    <MudGrid Class="mx-2">
-                        <MudItem lg="8" md="8" sm="8" Class="my-3">
-                            <MudText>Coconut oil</MudText>
-                        </MudItem>
-                        <MudItem lg="4" md="4" sm="4">
-                            <MudIconButton Icon="@Icons.Material.Filled.Close" OnClick="cartclose" />
-                        </MudItem>
-                        <MudItem lg="12" md="12" sm="12">
-                            <MudText Class="my-1"> 
-                                Price:₹ @sum
-                            </MudText>
-                            <MudButtonGroup Variant="Variant.Outlined" Style="border-width:1px ;border-color:#ff7800; width: 150px; height: 40px;">
-                                <MudButton Style="color:#ff7800; border:hidden;" OnClick="@decrases">-</MudButton>
-                                <MudSpacer></MudSpacer>
-                                <MudText Color="Color.Inherit" Style="align-content:center; text-align:center; color:#ff7800">@productcount</MudText>
-                                <MudSpacer></MudSpacer>
-                                <MudButton Style="color:#ff7800; border:hidden;" OnClick="@increase" Class="inc">+</MudButton>
-                            </MudButtonGroup>
-
-                        </MudItem>
-                    </MudGrid>
-
-                </MudItem>
-            </MudGrid>
-        </MudCard>           
-           
-        <MudSpacer />
-            <MudButton Href="/addtocart"> view cart</MudButton>
-
-       
     </MudDrawer>
-    @* Add to cart drawer end *@
 </MudLayout>
 
 
@@ -254,8 +192,24 @@
     public bool newcart = true;
     public int productcount = 1;
     public int productprice = 1000;
+    bool open1;
+    string drawerWidth = "430px";
+    void OpenWishList(Anchor anchor)
+    {
+        open1 = true;
+        this.anchor = anchor;
 
+        switch (anchor)
+        {
 
+            case Anchor.End:
+                width = "500px";
+                height = "100%";
+                break;
+
+        }
+    }
+   
     //cart close in drawer
     public void cartclose()
     {
@@ -335,6 +289,20 @@
     @* Add to cart drawer end *@
 
 <style>
+    .wishlist{
+        padding:20px;
+    }
+    .arrowicon{
+        background-color:whitesmoke;
+        border-radius:20px;
+    }
+    .searchbox{
+        background-color:whitesmoke;
+        border-radius:5px;
+    }
+    .searchdrawer{
+        overflow:hidden;
+    }
     @@media (max-width: 766px) {
         .mobilesearch{
             display: none;
